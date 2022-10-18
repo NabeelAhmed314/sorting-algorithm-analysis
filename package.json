@@ -1,0 +1,21 @@
+{
+    "name": "sorting-algorithm-analysis",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cssnano": "^5.1.13",
+        "postcss": "^8.2.15",
+        "typescript": "^4.7.3"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.5",
+        "parcel-bundler": "^1.12.5"
+    }
+}
