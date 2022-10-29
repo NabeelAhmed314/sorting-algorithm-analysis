@@ -19,6 +19,5 @@
     "dayjs": "^1.11.5",
     "echarts": "^5.4.0",
     "parcel-bundler": "^1.12.5",
-    "remarkable": "^2.0.1"
   }
 }

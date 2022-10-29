@@ -6,8 +6,6 @@ import {
   getSortTypeTitle,
 } from "./utils/utils";
 import * as echarts from "echarts";
-const fs = require("fs");
-import { Remarkable } from 'remarkable';
 
 const Style = {
   base: [
@@ -43,20 +41,6 @@ function initialize() {
     "Time taken to generate numbers => " + (end - start) + " milliseconds";
   p.classList.add("mb-2");
   document.getElementById("main").appendChild(p);
-
-  const info = document.createElement("p");
-
-  try {
-    const infoContent = fs.readFileSync("./src/assets/info.md", "utf8");
-    console.log(infoContent)
-    let md = new Remarkable();
-    console.log(md.render('# Remarkable rulezz!'));
-    info.innerHTML = md.render(infoContent.toString());
-    info.classList.add("mb-2");
-    document.getElementById("main").appendChild(info);
-  } catch (err) {
-    console.error(err);
-  }
 
   let table = document.createElement("table");
   table.classList.add("mb-2");
@@ -137,14 +121,7 @@ function createChart() {
   chartContainer.style.margin = "0 auto";
   chartContainer.style.height = "600px";
   chartContainer.style.minWidth = "600px";
-  // const canvas = document.createElement("canvas");
-  // canvas.setAttribute("id", "barChart");
-  // canvas.classList.add("mb-2");
-  // canvas.style.width = "100%";
-  // canvas.style.maxWidth = "700px";
-  // canvas.style.margin = "0 auto";
 
-  // document.getElementById("main").appendChild(canvas);
   document.getElementById("main").appendChild(chartContainer);
 
   const barChart = echarts.init(chartContainer);
