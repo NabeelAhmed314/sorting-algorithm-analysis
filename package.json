@@ -4,8 +4,8 @@
   "description": "",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +18,6 @@
   "dependencies": {
     "dayjs": "^1.11.5",
     "echarts": "^5.4.0",
-    "parcel-bundler": "^1.12.5",
+    "parcel-bundler": "^1.12.5"
   }
 }
