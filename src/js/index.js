@@ -68,14 +68,13 @@ function initialize() {
     let col = document.createElement("td");
     col.innerHTML = getSortTypeTitle(j);
     row.appendChild(col);
-
     for (let i = 0; i < 5; i++) {
       start = performance.now();
-      const arr = numberGenerator[getSortDifficulty(i)];
+      const arr = [...numberGenerator[getSortDifficulty(i)]];
       if (j === 2) {
         const min = Math.min(arr);
-        const max = Math.max(arr)
-        sort.sort(arr, min, max)
+        const max = Math.max(arr);
+        sort.sort(arr, min, max);
       } else {
         sort.sort(arr);
       }
