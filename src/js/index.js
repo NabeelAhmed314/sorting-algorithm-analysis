@@ -117,6 +117,10 @@ function createChart() {
         type: "shadow",
       },
     },
+    legend: {
+      orient: 'horizontal',
+      top: '20'
+    },
     grid: {
       left: "4%",
       right: "4%",
@@ -145,7 +149,7 @@ function createChart() {
   for (let j = 0; j < 3; j++) {
     options.series.push({
       name: getSortTypeTitle(j),
-      type: "bar",
+      type: "line",
       data: sorts[j].times,
     });
   }
