@@ -1,4 +1,6 @@
 export default class InsertionSort {
+  times = [];
+
   sort(arr) {
     let n = arr.length;
     for (let i = 1; i < n; i++) {

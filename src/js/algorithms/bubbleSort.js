@@ -1,4 +1,6 @@
 export default class BubbleSort {
+  times = [];
+
   sort(arr) {
     let n = arr.length;
     let sorted = false;

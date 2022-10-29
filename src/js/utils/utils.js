@@ -1,8 +1,8 @@
-import BubbleSort from "./bubbleSort";
-import InsertionSort from "./insertionSort";
-import MergeSort from "./mergeSort";
-import QuickSort from "./quickSort";
-import SelectionSort from "./selectionSort";
+import BubbleSort from "../algorithms/bubbleSort";
+import InsertionSort from "../algorithms/insertionSort";
+import MergeSort from "../algorithms/mergeSort";
+import QuickSort from "../algorithms/quickSort";
+import SelectionSort from "../algorithms/selectionSort";
 
 export function getSortType(type) {
   switch (type) {
@@ -35,6 +35,23 @@ export function getSortTypeTitle(type) {
       return "Merge Sort";
     default:
       return "Instertion Sort";
+  }
+}
+
+export function getSortTypeColor(type) {
+  switch (type) {
+    case 0:
+      return "red";
+    case 1:
+      return "green";
+    case 2:
+      return "blue";
+    case 3:
+      return "yellow";
+    case 4:
+      return "purple";
+    default:
+      return "red";
   }
 }
 

@@ -1,4 +1,6 @@
 export default class MergeSort {
+  times = [];
+
   sort(arr) {
     const half = arr.length / 2;
 

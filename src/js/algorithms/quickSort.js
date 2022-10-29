@@ -1,4 +1,6 @@
 export default class QuickSort {
+  times = [];
+
   sort(arr, start, end) {
     // Base case or terminating case
     if (start >= end) {

@@ -1,4 +1,6 @@
 export default class SelectionSort {
+  times = [];
+
   sort(arr) {
     let n = arr.length;
 
