@@ -2,6 +2,7 @@ export default class SelectionSort {
   times = [];
 
   sort(arr) {
+    console.log('Selection Sort');
     let n = arr.length;
 
     for (let i = 0; i < n; i++) {

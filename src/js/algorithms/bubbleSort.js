@@ -2,6 +2,7 @@ export default class BubbleSort {
   times = [];
 
   sort(arr) {
+    console.log('Bubble Sort');
     let n = arr.length;
     let sorted = false;
 

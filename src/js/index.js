@@ -25,12 +25,12 @@ const sorts = [];
 
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
+    log("Analysis Loaded");
     initialize();
   }
 };
 
 function initialize() {
-
   let start = performance.now();
   const numberGenerator = new NumberGenerator(1, 1000);
   numberGenerator.initialize();
@@ -55,28 +55,32 @@ function initialize() {
   let headingCol = document.createElement("th");
   headingCol.innerHTML = "Algorithm";
   headingRow.appendChild(headingCol);
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 5; i++) {
     let headingCol = document.createElement("th");
     headingCol.innerHTML = getSortDifficultyItems(i);
     headingRow.appendChild(headingCol);
   }
   thead.appendChild(headingRow);
 
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < 3; j++) {
     let sort = getSortType(j);
     let row = document.createElement("tr");
     let col = document.createElement("td");
     col.innerHTML = getSortTypeTitle(j);
     row.appendChild(col);
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 5; i++) {
       start = performance.now();
       const arr = numberGenerator[getSortDifficulty(i)];
-      if (j === 3) {
-        sort.sort(arr, 0, arr.length - 1);
+      if (j === 2) {
+        const min = Math.min(arr);
+        const max = Math.max(arr)
+        sort.sort(arr, min, max)
       } else {
         sort.sort(arr);
       }
+      // quick sort
+      // sort.sort(arr, 0, arr.length - 1);
       end = performance.now();
       let headingCol = document.createElement("td");
       headingCol.innerHTML = `${end - start}`;
@@ -92,26 +96,6 @@ function initialize() {
   document.getElementById("loading").remove();
 }
 
-function printInfo() {
-  console.log("started import");
-  var file = "info.txt";
-  console.log(file);
-  document.get(
-    file,
-    function (data) {
-      var lines = data.split("\n");
-      var id = 0;
-      $.each(lines, function (n, elem) {
-        parseLine(elem, id);
-        id++;
-      });
-      console.log("done parsing.");
-    },
-    "text"
-  );
-  console.log("done getting");
-}
-
 function createChart() {
   const chartContainer = document.createElement("div");
   chartContainer.setAttribute("id", "barChart");
@@ -125,7 +109,7 @@ function createChart() {
   document.getElementById("main").appendChild(chartContainer);
 
   const barChart = echarts.init(chartContainer);
-  var captions = ["1", "10", "100", "1000", "10000", "100000", "100 Sorted"];
+  var captions = ["10", "100", "1000", "10000", "100000"];
 
   var options = {
     tooltip: {
@@ -159,7 +143,7 @@ function createChart() {
     ],
     series: [],
   };
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < 3; j++) {
     options.series.push({
       name: getSortTypeTitle(j),
       type: "bar",

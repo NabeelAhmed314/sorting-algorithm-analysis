@@ -2,6 +2,7 @@ export default class MergeSort {
   times = [];
 
   sort(arr) {
+    // console.log('Merge Sort');
     const half = arr.length / 2;
 
     // Base case or terminating case

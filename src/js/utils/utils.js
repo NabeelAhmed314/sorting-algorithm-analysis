@@ -1,4 +1,5 @@
 import BubbleSort from "../algorithms/bubbleSort";
+import CountingSort from "../algorithms/countingSort";
 import InsertionSort from "../algorithms/insertionSort";
 import MergeSort from "../algorithms/mergeSort";
 import QuickSort from "../algorithms/quickSort";
@@ -9,13 +10,15 @@ export function getSortType(type) {
     case 0:
       return new InsertionSort();
     case 1:
-      return new BubbleSort();
-    case 2:
-      return new SelectionSort();
-    case 3:
-      return new QuickSort();
-    case 4:
       return new MergeSort();
+    case 2:
+      return new CountingSort();
+    case 3:
+      return new BubbleSort();
+    case 4:
+      return new SelectionSort();
+    case 5:
+      return new QuickSort();
     default:
       return new InsertionSort();
   }
@@ -26,73 +29,52 @@ export function getSortTypeTitle(type) {
     case 0:
       return "Insertion Sort";
     case 1:
-      return "Bubble Sort";
-    case 2:
-      return "Selection Sort";
-    case 3:
-      return "Quick Sort";
-    case 4:
       return "Merge Sort";
+    case 2:
+      return "Counting Sort";
+    case 3:
+      return "Bubble Sort";
+    case 4:
+      return "Selection Sort";
+    case 5:
+      return "Quick Sort";
     default:
       return "Instertion Sort";
-  }
-}
-
-export function getSortTypeColor(type) {
-  switch (type) {
-    case 0:
-      return "red";
-    case 1:
-      return "green";
-    case 2:
-      return "blue";
-    case 3:
-      return "yellow";
-    case 4:
-      return "purple";
-    default:
-      return "red";
   }
 }
 
 export function getSortDifficulty(difficulty) {
   switch (difficulty) {
     case 0:
-      return "vEasy";
-    case 1:
       return "easy";
-    case 2:
+    case 1:
       return "medium";
-    case 3:
+    case 2:
       return "hard";
-    case 4:
+    case 3:
       return "expert";
-    case 5:
+    case 4:
       return "advanced";
-    case 6:
-      return "sorted";
     default:
-      return "vEasy";
+      return "easy";
   }
 }
 
 export function getSortDifficultyItems(difficulty) {
   switch (difficulty) {
     case 0:
-      return "1 item";
-    case 1:
       return "10 items";
-    case 2:
+    case 1:
       return "100 items";
-    case 3:
+    case 2:
       return "1000 items";
-    case 4:
+    case 3:
       return "10000 items";
-    case 5:
+    case 4:
       return "100000 items";
-    case 6:
-      return "100 sorted items";
+    case 5:
+      return "1000000 items";
     default:
-      return "vEasy";
+      return "10 items";
   }
 }

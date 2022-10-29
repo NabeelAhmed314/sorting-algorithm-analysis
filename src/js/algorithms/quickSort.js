@@ -2,6 +2,7 @@ export default class QuickSort {
   times = [];
 
   sort(arr, start, end) {
+    console.log('Quick Sort');
     // Base case or terminating case
     if (start >= end) {
       return;
