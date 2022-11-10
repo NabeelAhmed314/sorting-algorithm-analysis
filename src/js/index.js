@@ -32,7 +32,7 @@ document.onreadystatechange = () => {
 
 function initialize() {
   let start = performance.now();
-  const numberGenerator = new NumberGenerator(1, 1000);
+  const numberGenerator = new NumberGenerator(1, 10000000);
   numberGenerator.initialize();
   let end = performance.now();
 
@@ -71,13 +71,16 @@ function initialize() {
     for (let i = 0; i < 5; i++) {
       start = performance.now();
       const arr = [...numberGenerator[getSortDifficulty(i)]];
+      // console.log(arr, "Before");
+      let sortedArr = [];
       if (j === 2) {
-        const min = Math.min(arr);
-        const max = Math.max(arr);
-        sort.sort(arr, min, max);
+        const min = Math.min(...arr);
+        const max = Math.max(...arr);
+        sortedArr = sort.sort(arr, min, max);
       } else {
-        sort.sort(arr);
+        sortedArr = sort.sort(arr);
       }
+      // console.log(sortedArr, "After");
       // quick sort
       // sort.sort(arr, 0, arr.length - 1);
       end = performance.now();
@@ -118,8 +121,8 @@ function createChart() {
       },
     },
     legend: {
-      orient: 'horizontal',
-      top: '20'
+      orient: "horizontal",
+      top: "20",
     },
     grid: {
       left: "4%",
